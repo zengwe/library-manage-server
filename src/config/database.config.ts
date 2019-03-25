@@ -10,7 +10,7 @@ export const DatabaseConfig = {
     dialect: 'mysql',
     logging: (args: any)=>{
       if(typeof args == 'string') {
-        console.log((<any>chalk).yellow('[MYSQL] ') + (<any>chalk).blue(args))
+        console.log((<any>chalk).yellow('[MYSQL] ') + (<any>chalk).blue(args.substring(21)))
       }else{
         log('red',args);
       }
