@@ -1,19 +1,13 @@
 import { Sequelize } from 'sequelize-typescript';
 import { DatabaseConfig } from '../config/database.config';
 import { log } from '../common/log';
-import { Test } from '../modules/test/test.model';
-let models = [Test];
-export function Model() {
-  return function(targe: any) {
-    models.push(targe);
-  }
-}
 export const DatabaseService = {
   provide: 'SequelizeInstance',
   useFactory: async () => {
       let config = DatabaseConfig.dev;
       const sequelize: any = new Sequelize(<any>config);
-      sequelize.addModels(models);
+      // sequelize.addModels(models);
+      log('red',process.cwd());
       let v = await sequelize.query("SELECT version()");    
       log('yellow', '**************************************');  
       // log('yellow', '*                                    *');                            

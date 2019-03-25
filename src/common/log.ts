@@ -1,3 +1,5 @@
+
+
 var styles = {
   'bold'          : ['\x1B[1m',  '\x1B[22m'],
   'italic'        : ['\x1B[3m',  '\x1B[23m'],
@@ -23,8 +25,8 @@ var styles = {
   'redBG'         : ['\x1B[41m', '\x1B[49m'],
   'yellowBG'      : ['\x1B[43m', '\x1B[49m']
 }
-
-export function log (key, obj) {
+type color = 'bold'|'italic'|'italic' |'underline'|'inverse'|'strikethrough'|'white';
+export function log (key: any, obj) {
   if (typeof obj === 'string') {
       console.log(styles[key][0] + '%s' + styles[key][1], obj)
   } else if (typeof obj === 'object') {
